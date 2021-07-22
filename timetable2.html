@@ -20,11 +20,11 @@
         </style>
         <script type="text/javascript" src="./glow/1.7.7/core/core.js"></script>
         <script type="text/javascript" src="./glow/1.7.7/widgets/widgets.js"></script>
-        <script type="text/javascript" src="./js/function.js"></script>
+        <script type="text/javascript" src="./js/function2.js"></script>
         <script type="text/javascript">
 
     glow.ready(function(){
-        glow.net.get("./data/20210722.json", {onLoad: 	function (response) {
+        glow.net.get("all.json", {onLoad: 	function (response) {
             var processed = process(response),
                 myTimetable = new glow.widgets.Timetable("#remoteExample",
                     processed.earliest, processed.latest,
@@ -34,8 +34,8 @@
                         tracks: processed.tracks
                     }
                 ).setBanding("hour")
-                    //.addScale("hour", "left", 83, {template: scaleMe})
-                    //.addScrollbar("hour", "right", 50, {template: scaleMe})
+                    .addScale("hour", "left", 83, {template: scaleMe})
+                    .addScrollbar("hour", "right", 50, {template: scaleMe})
                     .setTrackHeaderTemplate("<" + "h2>{title}</" + "h2>")
                     .draw();
         }});
